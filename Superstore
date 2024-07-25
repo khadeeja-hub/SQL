@@ -1,0 +1,6 @@
+Select SUM (stock_quantity)
+From superstore;
+
+Select MAX (price), item_name
+From superstore 
+WHERE item_name='Premium coffee Maker';
