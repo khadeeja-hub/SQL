@@ -1,0 +1,35 @@
+This statement is to see the conmpany name, revenue and averge empolyee of the technology industry. 
+
+SELECT company_name, revenue, employees, avg_employee_tenure
+FROM fortune_companies
+WHERE industry = 'Technology';
+
+Which companies in technolgy have 20 paid days of time. 
+
+SELECT *
+FROM fortune_companies
+WHERE industry = 'Technology' AND paid_time_off_days LIKE '20';
+
+Case study on providing information comapning havning less than equal to 15 PTO are low and more than 20 days are high PTO
+
+SELECT company_name, industry, paid_time_off_days,
+CASE WHEN paid_time_off_days <= 15 THEN 'Low PTO'
+WHEN paid_time_off_days BETWEEN 16 AND 20 THEN 'Medium PTO'
+WHEN paid_time_off_days > 20 THEN 'High PTO'
+END AS pto_category
+FROM fortune_companies
+WHERE healthcare_benefits = 1
+ORDER BY paid_time_off_days asc;
+
+How many averge employee are there in technology indusrty
+
+SELECT AVG(employees)
+FROM fortune_companies
+WHERE industry = "Technology";
+
+Which industry have more than equal to 10000 employees
+
+SELECT (employees), industry
+FROM fortune_companies
+GROUP BY industry
+HAVING employees >= 1000
